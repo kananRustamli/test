@@ -1,3 +1,17 @@
+const headers = document.querySelectorAll(".col-header");
+const bodies = document.querySelectorAll("col-body");
+
+headers.forEach((header) => {
+  header.nextElementSibling.style.display = "none";
+  header.addEventListener("click", () => {
+    if (header.nextElementSibling.style.display === "none") {
+      header.nextElementSibling.style.display = "block";
+    } else {
+      header.nextElementSibling.style.display = "none";
+    }
+  });
+});
+
 const fetchData = async () => {
   let data = await fetch("https://api.publicapis.org/entries");
   data = await data.json();
